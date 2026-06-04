@@ -1,0 +1,25 @@
+{
+  "source_file": "demo_job_description.txt",
+  "job_title": "Senior GenAI Engineer",
+  "chunk_count": 9,
+  "chunk_size": 400,
+  "chunk_overlap": 80,
+  "text_length": 2755,
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dim": 384,
+  "chunks": [
+    "Senior GenAI Engineer\n\nCompany: TechVista AI Labs\nLocation: Bangalore, India (Hybrid)\nExperience: 1-3 years",
+    "About the Role:\nWe are looking for a passionate Senior GenAI Engineer to join our AI research and product team. You will design, build, and deploy production-grade Generative AI systems that power intelligent applications across multiple domains. This role requires deep expertise in RAG architectures, LLM engineering, and vector databases, along with strong Python programming skills.",
+    "Required Skills:\n- Python programming (3.10+), object-oriented design, and clean code practices\n- Retrieval-Augmented Generation (RAG) — advanced RAG patterns, hybrid retrieval, semantic search\n- LLM Engineering — prompt engineering, LLM orchestration, Groq/OpenAI/Anthropic API integration\n- Vector Databases — FAISS, Qdrant, Pinecone, or Weaviate; dense and sparse retrieval methods",
+    "- Embedding Models — sentence-transformers, OpenAI embeddings, domain-specific fine-tuning\n- Hybrid Retrieval — BM25, dense retrieval, Reciprocal Rank Fusion (RRF)\n- Document Processing — PDF parsing (PyMuPDF/pdfplumber), semantic chunking, metadata extraction\n- Database Management — SQLite, PostgreSQL, metadata indexing\n- Version Control — Git, GitHub, CI/CD pipelines",
+    "Nice-to-Have Skills:\n- Streamlit / FastAPI / Flask for rapid prototyping and production deployment\n- Cloud deployment (AWS/GCP/Azure), Docker, Streamlit Cloud\n- NLP fundamentals — tokenization, named entity recognition, text classification\n- Experience with open-source LLMs (Llama, Mistral, Gemma)\n- Multi-document reasoning and citation grounding",
+    "- Multi-document reasoning and citation grounding\n- Evaluation frameworks for RAG pipelines (RAGAS, TruLens)\n- LangChain / LlamaIndex orchestration frameworks",
+    "Responsibilities:\n- Design and implement production-grade RAG pipelines with hybrid retrieval strategies\n- Build and optimize FAISS/Qdrant vector indexes for large-scale document collections\n- Develop LLM-powered features: Q&A, summarization, job matching, skill-gap analysis\n- Create semantic chunking and document ingestion pipelines for PDFs and web content",
+    "- Implement prompt engineering best practices for reliable, grounded LLM responses\n- Build REST APIs (FastAPI) and interactive UIs (Streamlit) for AI features\n- Monitor and optimize inference latency, embedding quality, and retrieval accuracy\n- Collaborate with product and design teams to translate requirements into AI solutions",
+    "Education:\n- B.Tech/M.Tech in Computer Science, AI, or related field\n- Strong academic foundation in data structures, algorithms, and machine learning\n\nWhat We Offer:\n- Competitive salary and equity\n- Learning budget for courses and conferences\n- Flexible work hours and hybrid model\n- Access to cutting-edge AI infrastructure and compute resources"
+  ],
+  "embeddings_shape": [
+    9,
+    384
+  ]
+}

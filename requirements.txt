@@ -1,0 +1,25 @@
+streamlit==1.41.1
+
+# --- Database ---
+# SQLite is built-in with Python, no extra package needed
+
+# --- PDF Parsing ---
+PyMuPDF==1.25.1
+
+# --- Embeddings & Vector Store ---
+sentence-transformers==3.3.1
+faiss-cpu==1.9.0.post1
+
+# --- LLM (Groq Free Tier) ---
+langchain-community==0.3.14
+langchain==0.3.14
+groq==0.13.1
+langchain-groq==0.2.3
+
+# --- Authentication ---
+PyJWT==2.10.1
+
+# --- Utilities ---
+python-dotenv==1.0.1
+python-multipart==0.0.20
+numpy==1.26.4
