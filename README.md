@@ -241,6 +241,17 @@ Groq LLM Response
 
 # 📸 Application Screenshots
 
+## 📄 Demo Resume
+
+[Download Demo Resume](./demo_resume.pdf)
+
+---
+
+## 📝 Demo Job Description
+
+[View Demo Job Description](./demo_job_description.txt)
+
+
 ## 🔐 Register Page
 
 ![Register Page](register.png)
