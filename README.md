@@ -173,9 +173,148 @@ NLP / RAG
 
 LangChain
 
+PDF Parsing
+
+PyMuPDF
+
+## 🏗️ System Architecture
+
+```text
+                +----------------------+
+                |     Streamlit UI     |
+                |  Interactive Frontend|
+                +----------+-----------+
+                           |
+                           v
+                +----------------------+
+                |    Business Logic    |
+                |    RAG Pipelines     |
+                | Resume Intelligence  |
+                +----------+-----------+
+                           |
+        +------------------+------------------+
+        |                                     |
+        v                                     v
++-------------------+              +----------------------+
+|    SQLite DB      |              |   FAISS Vector DB   |
+|-------------------|              |----------------------|
+| Users             |              | Resume Embeddings    |
+| Resumes           |              | Semantic Search      |
+| Chat History      |              | Similarity Retrieval |
+| Analyses          |              +----------------------+
++-------------------+
+                           |
+                           v
+                +----------------------+
+                |      Groq LLM        |
+                |  AI Response Engine  |
+                +----------------------+
+```
+## 🧠 RAG Pipeline
+
+```text
+Resume Q&A Flow
+
+PDF Resume
+    ↓
+Text Extraction
+    ↓
+Semantic Chunking
+    ↓
+Embedding Generation
+    ↓
+FAISS Indexing
+    ↓
+User Query
+    ↓
+Similarity Search
+    ↓
+Relevant Chunks Retrieved
+    ↓
+Prompt Construction
+    ↓
+Groq LLM Response
+```
+
+# 📸 Application Screenshots
+
+## 🔐 Register Page
+
 ![Register Page](register.png)
+
+---
+
+## 🔑 Login Page
 
 ![Login Page](login.png)
 
-PDF Parsing
-PyMuPDF
+## Resume Upload
+
+
+![Resume Upload Page](upload.png)
+
+
+## Resume Question Answer
+
+
+![Resume Q&A Page 1](Q&A1.png)
+
+![Resume Q&A Page 2](Q&A2.png)
+
+
+## Job Matching
+
+![Job Matching 0](jobmatching0.png)
+
+![Job Matching 1](jobmatching1.png)
+
+![Job Matching 2](jobmatching2.png)
+
+![Job Matching 3](jobmatching3.png)
+
+
+
+## Skill Gap Analysis
+
+![Skill Gap Analysis 0](skillgapanalysis0.png)
+
+![Skill Gap Analysis 1](skillgapanalysis1.png)
+
+![Skill Gap Analysis 2](skillgapanalysis2.png)
+
+![Skill Gap Analysis 3](skillgapanalysis3.png)
+
+
+## Learning Roadmap
+
+![Learning Roadmap 1](Learningroadmap1.png)
+
+![Learning Roadmap 2](Learningroadmap2.png)
+
+![Learning Roadmap 3](Learningroadmap3.png)
+
+![Learning Roadmap 4](Learningroadmap4.png)
+
+![Learning Roadmap 5](Learningroadmap5.png)
+
+![Learning Roadmap 6](Learningroadmap6.png)
+
+![Learning Roadmap 7](Learningroadmap7.png)
+
+## Mock interview for desired role
+
+![Mock Interview 1](Mockinterview1.png)
+
+![Mock Interview 2](Mockinterview2.png)
+
+![Mock Interview 3](Mockinterview3.png)
+
+
+## Fit Score
+
+![Fit Score 1](Fitscore1.png)
+
+![Fit Score 2](Fitscore2.png)
+
+
+
