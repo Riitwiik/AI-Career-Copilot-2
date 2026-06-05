@@ -173,9 +173,9 @@ NLP / RAG
 
 LangChain
 
-![Register Page](images/register.png)
+![Register Page](register.png)
 
-![Login Page](images/login.png)
+![Login Page](login.png)
 
 PDF Parsing
 PyMuPDF
