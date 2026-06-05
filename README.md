@@ -172,5 +172,10 @@ Llama 3.1 8B Instant
 NLP / RAG
 
 LangChain
+
+![Register Page](images/register.png)
+
+![Login Page](images/login.png)
+
 PDF Parsing
 PyMuPDF
