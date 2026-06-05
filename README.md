@@ -1,7 +1,7 @@
 # AI-Career-Copilot-2
 https://ai-career-copilot-2-ycsq2hvsy5zmctwbmwbtux.streamlit.app/
 
-🚀 AI Career Copilot
+## 🚀 AI Career Copilot
 
 An end-to-end AI-powered career assistant built with Streamlit, SQLite, FAISS, Sentence Transformers, and Groq LLMs.
 
@@ -23,9 +23,9 @@ Calculate recruiter-style fit scores
 
 Designed as a production-style MVP using only free and open-source technologies.
 
-✨ Features
+## ✨ Features
 
-📄 Resume Upload & Processing
+### 📄 Resume Upload & Processing
 
 Upload PDF resumes
 
@@ -37,7 +37,7 @@ Embedding generation using Sentence Transformers
 
 Vector indexing using FAISS
 
-💬 Resume Q&A (RAG Chatbot)
+### 💬 Resume Q&A (RAG Chatbot)
 
 Ask questions about your resume such as:
 
@@ -49,7 +49,7 @@ Ask questions about your resume such as:
 
 The system retrieves relevant chunks from the vector database and generates contextual answers using Groq LLMs.
 
-🎯 Job Description Matching
+### 🎯 Job Description Matching
 
 Compare your resume with a target job description and get:
 
@@ -61,7 +61,7 @@ Compatibility analysis
 
 Improvement suggestions
 
-📊 Skill-Gap Analysis
+### 📊 Skill-Gap Analysis
 
 Identify:
 
@@ -73,7 +73,7 @@ Partial competencies
 
 Priority learning areas
 
-🗺️ Personalized Learning Roadmap
+### 🗺️ Personalized Learning Roadmap
 
 Generate structured learning plans for target roles such as:
 
@@ -95,7 +95,7 @@ Project ideas
 
 Progress milestones
 
-🎤 Mock Interview Generator
+### 🎤 Mock Interview Generator
 
 AI-generated:
 
@@ -115,7 +115,7 @@ Interviewer expectations
 
 Answering tips
 
-📈 Recruiter Fit Score
+### 📈 Recruiter Fit Score
 
 Get recruiter-style evaluation scores:
 
@@ -135,13 +135,13 @@ Strengths analysis
 
 Concerns analysis
 
-🎮 Quick Demo Mode
+### 🎮 Quick Demo Mode
 
 Instantly test the application using a preloaded demo resume and demo job description.
 
 No upload required.
 
-🏗️ Tech Stack
+## 🏗️ Tech Stack
 
 Frontend
 
