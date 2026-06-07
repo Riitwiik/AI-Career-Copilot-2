@@ -1,14 +1,5 @@
-"""
-=============================================================================
-   AI Career Copilot MVP
-   Streamlit (UI) + SQLite + FAISS + RAG
-   Python 3.10 | Free & Open-Source Only | Groq Free Tier
-=============================================================================
-"""
 
-# ============================================================================
-# SECTION 1: IMPORTS
-# ============================================================================
+
 
 import os
 import sys
@@ -53,9 +44,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ============================================================================
-# SECTION 2: CONFIGURATION & LOGGING
-# ============================================================================
 
 load_dotenv()
 
@@ -125,9 +113,6 @@ logging.basicConfig(
 logger = logging.getLogger("career_copilot")
 
 
-# ============================================================================
-# SECTION 3: CENTRALIZED ERROR HANDLING
-# ============================================================================
 
 class AppError(Exception):
     """Base application error with user-friendly message and status code."""
@@ -169,9 +154,6 @@ def safe_error(e: Exception) -> str:
     return "An unexpected error occurred. Please try again."
 
 
-# ============================================================================
-# SECTION 4: DATABASE LAYER (SQLite)
-# ============================================================================
 
 @contextmanager
 def get_db():
@@ -273,9 +255,6 @@ def init_db():
     logger.info("Database initialized successfully")
 
 
-# ============================================================================
-# SECTION 5: AUTHENTICATION (JWT)
-# ============================================================================
 
 def hash_password(password: str) -> str:
     """Hash a password using SHA-256 with salt."""
@@ -346,9 +325,6 @@ def login_user(username: str, password: str) -> Dict[str, Any]:
         return {"user_id": row["id"], "username": row["username"], "token": token}
 
 
-# ============================================================================
-# SECTION 6: EMBEDDING & VECTOR STORE (FAISS)
-# ============================================================================
 
 @st.cache_resource
 def get_embedding_model() -> SentenceTransformer:
@@ -407,9 +383,6 @@ def search_faiss(index: faiss.Index, query_embedding: np.ndarray, top_k: int = 5
     return scores[0], indices[0]
 
 
-# ============================================================================
-# SECTION 7: PDF PARSING & SEMANTIC CHUNKING
-# ============================================================================
 
 @handle_error
 def parse_pdf(file_bytes: bytes) -> str:
@@ -473,9 +446,6 @@ def semantic_chunk(
     return chunks
 
 
-# ============================================================================
-# SECTION 8: BUSINESS LOGIC (RAG Pipeline + Analysis Features)
-# ============================================================================
 
 @st.cache_resource
 def get_groq_client():
@@ -589,9 +559,6 @@ def process_resume(
     return {"resume_id": resume_id, "filename": filename, "char_count": len(raw_text), "chunk_count": len(chunks), "reused": False}
 
 
-# ---------------------------------------------------------------------------
-# Helper: resolve resume data regardless of source (user-owned or shared demo)
-# ---------------------------------------------------------------------------
 
 def _is_demo_resume(resume_id: int) -> bool:
     """Check if the given resume_id corresponds to the shared demo resume."""
@@ -647,9 +614,6 @@ def _get_resume_data(resume_id: int, user_id: int) -> Dict[str, Any]:
     }
 
 
-# ---------------------------------------------------------------------------
-# Business logic functions — now support shared demo resume
-# ---------------------------------------------------------------------------
 
 @handle_error
 def resume_qa(user_id: int, resume_id: int, question: str) -> Dict[str, Any]:
@@ -883,31 +847,6 @@ def get_chat_history(user_id: int, resume_id: Optional[int] = None, limit: int =
         return [dict(r) for r in rows]
 
 
-# ============================================================================
-# SECTION 8i: SHARED DEMO ASSET SYSTEM (Pre-built, no re-embedding, no demo user)
-# ============================================================================
-#
-# Architecture:
-# ─────────────
-# The shared demo resume and job description assets are PRE-BUILT and stored
-# beside app.py. These files are version-controlled and shipped with the
-# repository. There is NO dedicated demo user account.
-#
-# Any authenticated user can click "🚀 Use Demo Resume" to instantly load
-# the shared demo resume as their active resume. The demo resume is
-# registered in SQLite under user_id=0 (a sentinel, not a real user) so
-# that all existing RAG features work transparently.
-#
-# On startup, the system:
-#   1. Checks if demo_resume.index and demo_resume_metadata.json exist
-#   2. If YES: loads them instantly (no PDF parsing, no chunking, no embedding)
-#   3. If NO: falls back to processing demo_resume.pdf once (development only)
-#
-# The demo FAISS index is NEVER rebuilt if the pre-built files exist.
-# This guarantees instant startup after deployments.
-# ─────────────────────────────────────────────────────────────────────────────
-
-# Sentinel user_id for the shared demo resume (not a real user account)
 DEMO_USER_ID = 0
 
 
@@ -1137,9 +1076,6 @@ def init_demo_data():
     return False
 
 
-# ============================================================================
-# SECTION 9: STREAMLIT UI
-# ============================================================================
 
 def init_session_state():
     defaults = {
