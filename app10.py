@@ -14,28 +14,28 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional, List, Dict, Any
 
-# --- Env / Config ---
+
 from dotenv import load_dotenv
 
-# --- Data ---
+
 import numpy as np
 
-# --- PDF Parsing ---
+
 import fitz  # PyMuPDF
 
-# --- Embeddings & Vector Store ---
+
 from sentence_transformers import SentenceTransformer
 import faiss
 
-# --- LangChain (Community Edition) ---
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_groq import ChatGroq
 from groq import Groq
 
-# --- Auth ---
+
 import jwt
 
-# --- Streamlit ---
+
 import streamlit as st
 st.set_page_config(
     page_title="AI Career Copilot",
@@ -47,7 +47,7 @@ st.set_page_config(
 
 load_dotenv()
 
-# --- Project Paths ---
+
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -55,20 +55,20 @@ DB_PATH = DATA_DIR / "career_copilot.db"
 FAISS_DIR = DATA_DIR / "faiss_index"
 FAISS_DIR.mkdir(exist_ok=True)
 
-# --- Demo asset paths (beside app.py, NOT in data/) ---
+
 DEMO_RESUME_PDF = BASE_DIR / "demo_resume.pdf"
 DEMO_RESUME_INDEX = BASE_DIR / "demo_resume.index"
 DEMO_RESUME_METADATA = BASE_DIR / "demo_resume_metadata.json"
 DEMO_JD_TEXT = BASE_DIR / "demo_job_description.txt"
 DEMO_JD_METADATA = BASE_DIR / "demo_job_description_metadata.json"
 
-# --- Shared demo resume identifier (NOT a user account) ---
+
 DEMO_RESUME_ID = "global_demo_resume"
 
-# --- Max upload size (10 MB) ---
+
 MAX_UPLOAD_SIZE = 10 * 1024 * 1024
 
-# --- App Settings ---
+
 GROQ_API_KEY = (
     os.getenv("GROQ_API_KEY")
     or st.secrets.get("GROQ_API_KEY", "")
@@ -97,11 +97,11 @@ GROQ_MODEL = (
     )
 )
 
-# --- Retry settings ---
+
 MAX_RETRIES = 3
 BASE_RETRY_DELAY = 2  # seconds
 
-# --- Logging ---
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)-8s | %(name)-18s | %(message)s",
@@ -1004,7 +1004,7 @@ def init_demo_data():
     """
     logger.info("Initializing shared demo data (no demo user)...")
 
-    # ── Step 1: Check if demo resume already registered under sentinel user_id ──
+    #  Check if demo resume already registered under sentinel user_id ──
     existing_id = _get_demo_resume_db_id()
     if existing_id is not None:
         # Also verify the FAISS index file exists in DATA_DIR
@@ -1019,7 +1019,7 @@ def init_demo_data():
             logger.info(f"Copied pre-built demo index to {index_path}")
             return True
 
-    # ── Step 2: Load from pre-built assets (FAST PATH) ──
+    #  Load from pre-built assets (FAST PATH) ──
     demo_metadata = load_demo_metadata()
     demo_index = load_demo_faiss_index()
 
@@ -1043,7 +1043,7 @@ def init_demo_data():
         logger.info(f"Shared demo resume loaded from pre-built assets (id={resume_id}, {len(chunks)} chunks) — NO re-embedding")
         return True
 
-    # ── Step 3: Fallback — process demo PDF (DEVELOPMENT ONLY) ──
+    #  Fallback — process demo PDF (DEVELOPMENT ONLY) ──
     if DEMO_RESUME_PDF.exists():
         logger.warning("Pre-built demo assets not found — falling back to PDF processing (development mode)")
         try:
@@ -1157,7 +1157,7 @@ def run_streamlit():
 
     st.sidebar.divider()
 
-    # ── Quick Demo (TOP PRIORITY — first thing users see after login) ──
+    # (TOP PRIORITY — first thing users see after login) ──
     with st.sidebar.container():
         st.subheader("🎮 Quick Demo")
         st.caption(
@@ -1188,7 +1188,7 @@ def run_streamlit():
 
     st.sidebar.divider()
 
-    # ── Resume Selection ──
+    # Resume Selection 
     st.sidebar.subheader("📂 Resume Selection")
     try:
         resumes = list_resumes(st.session_state.user_id)
@@ -1203,7 +1203,7 @@ def run_streamlit():
 
     st.sidebar.divider()
 
-    # ── Navigation ──
+    # Navigation 
     page = st.sidebar.radio("Navigate", ["📄 Resume Upload", "💬 Resume Q&A", "🎯 Job Matching", "📊 Skill-Gap Analysis", "🗺️ Learning Roadmap", "🎤 Mock Interview", "📈 Fit Score"])
 
     if page == "📄 Resume Upload":
